@@ -1,5 +1,5 @@
-// Writes PACKAGES local packages with MODULES modules each. Every module imports
-// react and IMPORTS deep specifiers from lower-numbered packages.
+// Writes PACKAGES local packages with MODULES modules each. package.json links them with `file:`
+// Every module imports react and IMPORTS deep specifiers from lower-numbered packages
 import fs from "node:fs";
 import path from "node:path";
 
@@ -58,13 +58,5 @@ page.push(
 );
 fs.mkdirSync(path.join(root, "pages"), { recursive: true });
 fs.writeFileSync(path.join(root, "pages", "index.jsx"), `${page.join("\n")}\n`);
-
-const pkgJsonPath = path.join(root, "package.json");
-const pkgJson = JSON.parse(fs.readFileSync(pkgJsonPath, "utf8"));
-pkgJson.dependencies = {
-  ...Object.fromEntries(Object.entries(pkgJson.dependencies).filter(([name]) => !name.startsWith("pkg-"))),
-  ...Object.fromEntries(Array.from({ length: PACKAGES }, (_, p) => [pkgName(p), `file:packages/${pkgName(p)}`])),
-};
-fs.writeFileSync(pkgJsonPath, `${JSON.stringify(pkgJson, null, 2)}\n`);
 
 console.log(`${PACKAGES} packages, ${PACKAGES * (MODULES + 1)} modules, ${(PACKAGES - 1) * MODULES * IMPORTS} cross-package imports`);

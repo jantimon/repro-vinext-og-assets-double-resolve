@@ -1,5 +1,5 @@
 // node scripts/compare.mjs [runs]
-// Runs each variant `runs` times, interleaved, each in a fresh process with an empty Vite cache.
+// Runs each variant `runs` times, interleaved, each in a fresh process with an empty Vite cache
 import { execFileSync } from "node:child_process";
 import path from "node:path";
 

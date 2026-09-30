@@ -1,4 +1,4 @@
-// Starts the vite dev server with vinext, requests `/` once and prints JSON stats.
+// Starts the vite dev server with vinext, requests `/` once and prints JSON stats
 // --mode stock    vinext as installed
 // --mode off      without the resolveId hook of vinext:og-inline-fetch-assets
 // --mode return   the hook returns the result of its own this.resolve() instead of null
