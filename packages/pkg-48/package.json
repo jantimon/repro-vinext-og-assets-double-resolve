@@ -1,0 +1,12 @@
+{
+  "name": "pkg-48",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./index.js",
+    "./*": "./src/*.js"
+  },
+  "peerDependencies": {
+    "react": "*"
+  }
+}

@@ -1,0 +1,10 @@
+node_modules/
+dist/
+profiles/
+pages/
+packages/*/index.js
+packages/*/src/
+*.cpuprofile
+.next/
+.vinext/
+next-env.d.ts
