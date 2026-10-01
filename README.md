@@ -1,5 +1,7 @@
 # vinext dev: the OG asset hook resolves every package import twice
 
+Issue: [cloudflare/vinext#3637](https://github.com/cloudflare/vinext/issues/3637)
+
 **In dev, `vinext:og-inline-fetch-assets` resolves every import of a dependency or alias a second time, even in apps that never use `next/og`.**
 On this synthetic Pages Router app, the first page load on vinext `main` takes 26.8 s of CPU time. Without the hook's `resolveId` it takes 18.3 s, with identical HTML.
 
